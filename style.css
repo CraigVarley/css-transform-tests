@@ -4,43 +4,89 @@
   flex-direction: column;
 }
 
+/* wrapper for objects */
 .stage {
   width:300px;
   height:300px;
   perspective: 600px;
-  margin:50px auto;
+  margin: 50px auto;
 }
 
-.card {
+/* BASIC CARD & CUBE STYLES */
+.object {
   width:100%;
   height:100%;
   position:relative;
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 2s;
   font-family: sans-serif;
   color:white;
   text-align: center;
   line-height: 100%;
 }
 
-.card-face {
-  width:100%;
-  height:100%;
+.faces {
+  width:300px;
+  height:300px;
   position:absolute;
+  border:1px black solid;
+}
+
+#front,
+#back {
   backface-visibility: hidden;
 }
+
+/* SPECIFIC 2D CARD STYLES + TRANSFORMS */
 
 #front {
   background-color: red;
 }
 
-/* this prerotates the back card so it's front faced when flipped by click */
 #back {
   background-color: green;
-  transform:rotateY(180deg);
+  transform:rotateY(-180deg);
+
 }
 
 /* class to be toggled on click in event listener */
 .flipcard {
   transform:rotateY(180deg);
+}
+
+
+/* BASIC CUBE + 3D ROTATE STYLES */
+
+.cube {
+  opacity:0.5;
+}
+
+#cube-front {
+  background-color: red;
+  transform: translateZ(100px);
+}
+
+#cube-back {
+  background-color: green;
+  transform:rotateY(180deg) translateZ(100px);
+}
+
+#cube-left {
+  background-color: yellow;
+  transform:rotateY(-90deg) translateZ(100px);
+}
+
+#cube-right {
+  background-color: blue;
+  transform:rotateY(90deg) translateZ(100px);
+}
+
+#cube-top {
+  background-color: aqua;
+  transform:rotateX(90deg) translateZ(100px);
+}
+
+#cube-bottom {
+  background-color: orange;
+  transform:rotateX(-90deg) translateZ(100px);
 }
