@@ -1,64 +1,46 @@
 
-#container {
+/* #container {
   display:flex;
   flex-direction: column;
-}
+} */
 
-/* wrapper for objects */
 .stage {
-  width:300px;
-  height:300px;
-  perspective: 600px;
-  margin: 50px auto;
+  width:200px;
+  height:200px;
+  perspective: 500px;
+  margin: 100px auto;
+  opacity:0.5;
 }
 
-/* BASIC CARD & CUBE STYLES */
-.object {
+.cube {
   width:100%;
   height:100%;
   position:relative;
   transform-style: preserve-3d;
-  transition: transform 2s;
   font-family: sans-serif;
   color:white;
   text-align: center;
   line-height: 100%;
 }
 
+.cube-animate {
+  animation:spin 8s linear infinite;
+}
+
+/* gotta put the opacity here not in .cube */
 .faces {
-  width:300px;
-  height:300px;
+  width:200px;
+  height:200px;
   position:absolute;
   border:1px black solid;
-}
-
-#front,
-#back {
-  backface-visibility: hidden;
-}
-
-/* SPECIFIC 2D CARD STYLES + TRANSFORMS */
-
-#front {
-  background-color: red;
-}
-
-#back {
-  background-color: green;
-  transform:rotateY(-180deg);
-
-}
-
-/* class to be toggled on click in event listener */
-.flipcard {
-  transform:rotateY(180deg);
-}
-
-
-/* BASIC CUBE + 3D ROTATE STYLES */
-
-.cube {
   opacity:0.5;
+  font-family: sans-serif;
+  color:white;
+  text-align: center;
+  font-size:2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #cube-front {
@@ -89,4 +71,9 @@
 #cube-bottom {
   background-color: orange;
   transform:rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin {
+  from {transform:rotate3d(0,0,0,0);}
+  to {transform:rotate3d(0,1,0,360deg);}
 }

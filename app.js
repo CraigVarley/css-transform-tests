@@ -1,6 +1,14 @@
-const card = document.querySelector('.card');
-card.addEventListener('click', flipcard);
+// events and simple stop start functions on mousedown for clumsy cube rotyation
 
-function flipcard() {
-  card.classList.toggle('flipcard');
+const cube = document.querySelector('#cube');
+
+cube.addEventListener('mousedown', stop);
+cube.addEventListener('mouseup', start);
+
+function stop() {
+  cube.classList.remove('cube-animate');
+}
+
+function start () {
+  cube.classList.add('cube-animate')
 }
